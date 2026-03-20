@@ -89,7 +89,7 @@ If `link.exe` is missing, `cargo run` and `cargo build` will fail.
 ### 3. Fedora Linux dependencies
 
 ```bash
-sudo dnf install gcc gcc-c++ fontconfig-devel freetype-devel libX11-devel libXcursor-devel libXi-devel libXrandr-devel libXinerama-devel libxcb-devel mesa-libGL-devel wayland-devel libxkbcommon-devel
+sudo dnf install gcc gcc-c++ systemd-devel fontconfig-devel freetype-devel libX11-devel libXcursor-devel libXi-devel libXrandr-devel libXinerama-devel libxcb-devel mesa-libGL-devel wayland-devel libxkbcommon-devel
 ```
 
 ### 4. Start in development mode
@@ -112,6 +112,8 @@ Generated binaries:
 ## GitHub Actions Release
 
 This repository includes `.github/workflows/release.yml` for automated release builds.
+
+On Linux CI, `libudev-dev` is installed because the `serialport` dependency uses `libudev` on Linux.
 
 - Manual test build: run the `release` workflow from the Actions tab using `workflow_dispatch`
 - Tagged release build: push a tag like `v0.1.0`
